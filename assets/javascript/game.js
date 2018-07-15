@@ -8,8 +8,26 @@ var crystal2 = Math.floor((Math.random() * 13)+1);
 var crystal3 = Math.floor((Math.random() * 13)+1); 
 var crystal4 = Math.floor((Math.random() * 13)+1); 
 
-
 $(document).ready(function () { 
+
+    //Background music from https://soundcloud.com/big-impact-sound-support-account/pink-rpg-lullaby
+    var audioElement = document.createElement("audio");
+    audioElement.setAttribute("src", "assets/music/background.mp3");
+
+    var ting = document.createElement("audio");
+    ting.setAttribute("src", "assets/music/ting.mp3"); 
+
+    var winner = document.createElement("audio"); 
+    winner.setAttribute("src", "assets/music/winner.mp3"); 
+
+    var failure = document.createElement("audio"); 
+    failure.setAttribute("src", "assets/music/failure.mp3"); 
+
+    $(document).on('click', 'img', function() {
+        audioElement.play(); 
+        ting.play(); 
+    })
+ 
     //Fade in effect in the beginning
     $('div.hidden').fadeIn(1500).removeClass('hidden');
 
@@ -27,11 +45,13 @@ $(document).ready(function () {
         totalScore += crystal1;
         $('#score').text(totalScore);
         if (totalScore > randomNumber) {
+            failure.play(); 
             alert("\n\nYou lose! Better luck next time.\n");
             loses++;
             $('#loses').text(loses);
             resetGame();
         } else if (totalScore == randomNumber) {
+            winner.play(); 
             alert("\n\nYou win! Nice going.\n"); 
             win++;
             $('#wins').text(win);
@@ -43,11 +63,13 @@ $(document).ready(function () {
         totalScore += crystal2;
         $('#score').text(totalScore);
         if (totalScore > randomNumber) {
+            failure.play(); 
             alert("\n\nYou lose! Better luck next time.\n");
             loses++;
             $('#loses').text(loses);
             resetGame();
         } else if (totalScore == randomNumber) {
+            winner.play(); 
             alert("\n\nYou win! Nice going.\n"); 
             win++;
             $('#wins').text(win);
@@ -59,11 +81,13 @@ $(document).ready(function () {
         totalScore += crystal3;
         $('#score').text(totalScore);
         if (totalScore > randomNumber) {
+            failure.play(); 
             alert("\n\nYou lose! Better luck next time.\n");
             loses++;
             $('#loses').text(loses);
             resetGame();
         } else if (totalScore == randomNumber) {
+            winner.play(); 
             alert("\n\nYou win! Nice going.\n"); 
             win++;
             $('#wins').text(win);
@@ -75,11 +99,13 @@ $(document).ready(function () {
         totalScore += crystal4;
         $('#score').text(totalScore);
         if (totalScore > randomNumber) {
+            failure.play(); 
             alert("\n\nYou lose! Better luck next time.\n");
             loses++;
             $('#loses').text(loses);
             resetGame();
         } else if (totalScore == randomNumber) {
+            winner.play(); 
             alert("\n\nYou win! Nice going.\n"); 
             win++;
             $('#wins').text(win);
