@@ -120,6 +120,7 @@ $(document).ready(function () {
         crystal3 = Math.floor((Math.random() * 13)+1); 
         crystal4 = Math.floor((Math.random() * 13)+1); 
         totalScore = 0; 
+        $('#score').text(totalScore);
         $('#random-number').text(randomNumber);
     }
 
